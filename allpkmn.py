@@ -1,5 +1,17 @@
 from random import randint, choice
 
+def random_pick():
+	listado = lista_pokemon()
+	es_basura = randint(-3, -1)
+	lista_basura = [41,50]
+	if es_basura == -2:
+		pokemon = choice(lista_basura)
+		return pokemon
+	else:		
+		pokemon = choice(lista_pokemon())
+		return pokemon["id"]
+
+
 def lista_pokemon():
 	dicc = [
 	{
@@ -858,15 +870,6 @@ def lista_pokemon():
 	return dicc
 
 
-def random_pick():
-	listado = lista_pokemon()
-	es_basura = randint(-3, -1)
-	lista_basura = [41,50]
-	if es_basura == -2:
-		pokemon = choice(lista_basura)
-		return pokemon
-	else:		
-		pokemon = choice(lista_pokemon())
-		return pokemon["id"]
+
 
 
