@@ -5,11 +5,18 @@ def random_pick():
 	es_basura = randint(-3, -1)
 	lista_basura = [41,50]
 	if es_basura == -2:
-		pokemon = choice(lista_basura)
+		pokemon = choHielo(lista_basura)
 		return pokemon
 	else:		
-		pokemon = choice(lista_pokemon())
+		pokemon = choHielo(lista_pokemon())
 		return pokemon["id"]
+
+def types_from_id(id):
+	listado = lista_pokemon()
+	pokemon = listado[int(id)-1]
+	return pokemon["types"]
+
+
 
 
 def lista_pokemon():
@@ -18,828 +25,828 @@ def lista_pokemon():
 		"id": 1,
 		"name": "Bulbasaur",
 		"isNfe": True,
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 2,
 		"name": "Ivysaur",
 		"isNfe": True,
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 3,
 		"name": "Venusaur",
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 4,
 		"name": "Charmander",
 		"isNfe": True,
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 5,
 		"name": "Charmeleon",
 		"isNfe": True,
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 6,
 		"name": "Charizard",
-		"types": ["fire", "flying"]
+		"types": ["Fuego", "Volador"]
 	},
 	{
 		"id": 7,
 		"name": "Squirtle",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 8,
 		"name": "Wartortle",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 9,
 		"name": "Blastoise",
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 10,
 		"name": "Caterpie",
 		"isNfe": True,
-		"types": ["bug"]
+		"types": ["Bicho"]
 	},
 	{
 		"id": 11,
 		"name": "Metapod",
 		"isNfe": True,
-		"types": ["bug"]
+		"types": ["Bicho"]
 	},
 	{
 		"id": 12,
 		"name": "Butterfree",
-		"types": ["bug", "flying"]
+		"types": ["Bicho", "Volador"]
 	},
 	{
 		"id": 13,
 		"name": "Weedle",
 		"isNfe": True,
-		"types": ["bug", "poison"]
+		"types": ["Bicho", "Veneno"]
 	},
 	{
 		"id": 14,
 		"name": "Kakuna",
 		"isNfe": True,
-		"types": ["bug", "poison"]
+		"types": ["Bicho", "Veneno"]
 	},
 	{
 		"id": 15,
 		"name": "Beedrill",
-		"types": ["bug", "poison"]
+		"types": ["Bicho", "Veneno"]
 	},
 	{
 		"id": 16,
 		"name": "Pidgey",
 		"isNfe": True,
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 17,
 		"name": "Pidgeotto",
 		"isNfe": True,
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 18,
 		"name": "Pidgeot",
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 19,
 		"name": "Rattata",
 		"isNfe": True,
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 20,
 		"name": "Raticate",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 21,
 		"name": "Spearow",
 		"isNfe": True,
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 22,
 		"name": "Fearow",
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 23,
 		"name": "Ekans",
 		"isNfe": True,
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 24,
 		"name": "Arbok",
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 25,
 		"name": "Pikachu",
 		"isNfe": True,
-		"types": ["electric"]
+		"types": ["Electrico"]
 	},
 	{
 		"id": 26,
 		"name": "Raichu",
-		"types": ["electric"]
+		"types": ["Electrico"]
 	},
 	{
 		"id": 27,
 		"name": "Sandshrew",
 		"isNfe": True,
-		"types": ["ground"]
+		"types": ["Tierra"]
 	},
 	{
 		"id": 28,
 		"name": "Sandslash",
-		"types": ["ground"]
+		"types": ["Tierra"]
 	},
 	{
 		"id": 29,
 		"name": "Nidoran ♀",
 		"isNfe": True,
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 30,
 		"name": "Nidorina",
 		"isNfe": True,
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 31,
 		"name": "Nidoqueen",
-		"types": ["poison", "ground"]
+		"types": ["Veneno", "Tierra"]
 	},
 	{
 		"id": 32,
 		"name": "Nidoran ♂",
 		"isNfe": True,
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 33,
 		"name": "Nidorino",
 		"isNfe": True,
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 34,
 		"name": "Nidoking",
-		"types": ["poison", "ground"]
+		"types": ["Veneno", "Tierra"]
 	},
 	{
 		"id": 35,
 		"name": "Clefairy",
 		"isNfe": True,
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 36,
 		"name": "Clefable",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 37,
 		"name": "Vulpix",
 		"isNfe": True,
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 38,
 		"name": "Ninetales",
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 39,
 		"name": "Jigglypuff",
 		"isNfe": True,
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 40,
 		"name": "Wigglytuff",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 41,
 		"name": "Zubat",
 		"isNfe": True,
-		"types": ["poison", "flying"]
+		"types": ["Veneno", "Volador"]
 	},
 	{
 		"id": 42,
 		"name": "Golbat",
-		"types": ["poison", "flying"]
+		"types": ["Veneno", "Volador"]
 	},
 	{
 		"id": 43,
 		"name": "Oddish",
 		"isNfe": True,
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 44,
 		"name": "Gloom",
 		"isNfe": True,
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 45,
 		"name": "Vileplume",
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 46,
 		"name": "Paras",
 		"isNfe": True,
-		"types": ["bug", "grass"]
+		"types": ["Bicho", "Hierba"]
 	},
 	{
 		"id": 47,
 		"name": "Parasect",
-		"types": ["bug", "grass"]
+		"types": ["Bicho", "Hierba"]
 	},
 	{
 		"id": 48,
 		"name": "Venonat",
 		"isNfe": True,
-		"types": ["bug", "poison"]
+		"types": ["Bicho", "Veneno"]
 	},
 	{
 		"id": 49,
 		"name": "Venomoth",
-		"types": ["bug", "poison"]
+		"types": ["Bicho", "Veneno"]
 	},
 	{
 		"id": 50,
 		"name": "Diglett",
 		"isNfe": True,
-		"types": ["ground"]
+		"types": ["Tierra"]
 	},
 	{
 		"id": 51,
 		"name": "Dugtrio",
-		"types": ["ground"]
+		"types": ["Tierra"]
 	},
 	{
 		"id": 52,
 		"name": "Meowth",
 		"isNfe": True,
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 53,
 		"name": "Persian",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 54,
 		"name": "Psyduck",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 55,
 		"name": "Golduck",
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 56,
 		"name": "Mankey",
 		"isNfe": True,
-		"types": ["fighting"]
+		"types": ["Luchador"]
 	},
 	{
 		"id": 57,
 		"name": "Primeape",
-		"types": ["fighting"]
+		"types": ["Luchador"]
 	},
 	{
 		"id": 58,
 		"name": "Growlithe",
 		"isNfe": True,
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 59,
 		"name": "Arcanine",
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 60,
 		"name": "Poliwag",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 61,
 		"name": "Poliwhirl",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 62,
 		"name": "Poliwrath",
-		"types": ["water", "fighting"]
+		"types": ["Agua", "Luchador"]
 	},
 	{
 		"id": 63,
 		"name": "Abra",
 		"isNfe": True,
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 64,
 		"name": "Kadabra",
 		"isNfe": True,
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 65,
 		"name": "Alakazam",
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 66,
 		"name": "Machop",
 		"isNfe": True,
-		"types": ["fighting"]
+		"types": ["Luchador"]
 	},
 	{
 		"id": 67,
 		"name": "Machoke",
 		"isNfe": True,
-		"types": ["fighting"]
+		"types": ["Luchador"]
 	},
 	{
 		"id": 68,
 		"name": "Machamp",
-		"types": ["fighting"]
+		"types": ["Luchador"]
 	},
 	{
 		"id": 69,
 		"name": "Bellsprout",
 		"isNfe": True,
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 70,
 		"name": "Weepinbell",
 		"isNfe": True,
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 71,
 		"name": "Victreebel",
-		"types": ["grass", "poison"]
+		"types": ["Hierba", "Veneno"]
 	},
 	{
 		"id": 72,
 		"name": "Tentacool",
 		"isNfe": True,
-		"types": ["water", "poison"]
+		"types": ["Agua", "Veneno"]
 	},
 	{
 		"id": 73,
 		"name": "Tentacruel",
-		"types": ["water", "poison"]
+		"types": ["Agua", "Veneno"]
 	},
 	{
 		"id": 74,
 		"name": "Geodude",
 		"isNfe": True,
-		"types": ["rock", "ground"]
+		"types": ["Piedra", "Tierra"]
 	},
 	{
 		"id": 75,
 		"name": "Graveler",
 		"isNfe": True,
-		"types": ["rock", "ground"]
+		"types": ["Piedra", "Tierra"]
 	},
 	{
 		"id": 76,
 		"name": "Golem",
-		"types": ["rock", "ground"]
+		"types": ["Piedra", "Tierra"]
 	},
 	{
 		"id": 77,
 		"name": "Ponyta",
 		"isNfe": True,
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 78,
 		"name": "Rapidash",
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 79,
 		"name": "Slowpoke",
 		"isNfe": True,
-		"types": ["water", "psychic"]
+		"types": ["Agua", "Psiquico"]
 	},
 	{
 		"id": 80,
 		"name": "Slowbro",
-		"types": ["water", "psychic"]
+		"types": ["Agua", "Psiquico"]
 	},
 	{
 		"id": 81,
 		"name": "Magnemite",
 		"isNfe": True,
-		"types": ["electric", "steel"]
+		"types": ["Electrico", "Acero"]
 	},
 	{
 		"id": 82,
 		"name": "Magneton",
-		"types": ["electric", "steel"]
+		"types": ["Electrico", "Acero"]
 	},
 	{
 		"id": 83,
 		"name": "Farfetch'd",
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 84,
 		"name": "Doduo",
 		"isNfe": True,
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 85,
 		"name": "Dodrio",
-		"types": ["normal", "flying"]
+		"types": ["Normal", "Volador"]
 	},
 	{
 		"id": 86,
 		"name": "Seel",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 87,
 		"name": "Dewgong",
-		"types": ["water", "ice"]
+		"types": ["Agua", "Hielo"]
 	},
 	{
 		"id": 88,
 		"name": "Grimer",
 		"isNfe": True,
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 89,
 		"name": "Muk",
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 90,
 		"name": "Shellder",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 91,
 		"name": "Cloyster",
-		"types": ["water", "ice"]
+		"types": ["Agua", "Hielo"]
 	},
 	{
 		"id": 92,
 		"name": "Gastly",
 		"isNfe": True,
-		"types": ["ghost", "poison"]
+		"types": ["Fantasma", "Veneno"]
 	},
 	{
 		"id": 93,
 		"name": "Haunter",
 		"isNfe": True,
-		"types": ["ghost", "poison"]
+		"types": ["Fantasma", "Veneno"]
 	},
 	{
 		"id": 94,
 		"name": "Gengar",
-		"types": ["ghost", "poison"]
+		"types": ["Fantasma", "Veneno"]
 	},
 	{
 		"id": 95,
 		"name": "Onix",
-		"types": ["rock", "ground"]
+		"types": ["Piedra", "Tierra"]
 	},
 	{
 		"id": 96,
 		"name": "Drowzee",
 		"isNfe": True,
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 97,
 		"name": "Hypno",
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 98,
 		"name": "Krabby",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 99,
 		"name": "Kingler",
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 100,
 		"name": "Voltorb",
 		"isNfe": True,
-		"types": ["electric"]
+		"types": ["Electrico"]
 	},
 	{
 		"id": 101,
 		"name": "Electrode",
-		"types": ["electric"]
+		"types": ["Electrico"]
 	},
 	{
 		"id": 102,
 		"name": "Exeggcute",
 		"isNfe": True,
-		"types": ["grass", "psychic"]
+		"types": ["Hierba", "Psiquico"]
 	},
 	{
 		"id": 103,
 		"name": "Exeggutor",
-		"types": ["grass", "psychic"]
+		"types": ["Hierba", "Psiquico"]
 	},
 	{
 		"id": 104,
 		"name": "Cubone",
 		"isNfe": True,
-		"types": ["ground"]
+		"types": ["Tierra"]
 	},
 	{
 		"id": 105,
 		"name": "Marowak",
-		"types": ["ground"]
+		"types": ["Tierra"]
 	},
 	{
 		"id": 106,
 		"name": "Hitmonlee",
-		"types": ["fighting"]
+		"types": ["Luchador"]
 	},
 	{
 		"id": 107,
 		"name": "Hitmonchan",
-		"types": ["fighting"]
+		"types": ["Luchador"]
 	},
 	{
 		"id": 108,
 		"name": "Lickitung",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 109,
 		"name": "Koffing",
 		"isNfe": True,
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 110,
 		"name": "Weezing",
-		"types": ["poison"]
+		"types": ["Veneno"]
 	},
 	{
 		"id": 111,
 		"name": "Rhyhorn",
 		"isNfe": True,
-		"types": ["ground", "rock"]
+		"types": ["Tierra", "Piedra"]
 	},
 	{
 		"id": 112,
 		"name": "Rhydon",
-		"types": ["ground", "rock"]
+		"types": ["Tierra", "Piedra"]
 	},
 	{
 		"id": 113,
 		"name": "Chansey",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 114,
 		"name": "Tangela",
-		"types": ["grass"]
+		"types": ["Hierba"]
 	},
 	{
 		"id": 115,
 		"name": "Kangaskhan",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 116,
 		"name": "Horsea",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 117,
 		"name": "Seadra",
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 118,
 		"name": "Goldeen",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 119,
 		"name": "Seaking",
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 120,
 		"name": "Staryu",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 121,
 		"name": "Starmie",
-		"types": ["water", "psychic"]
+		"types": ["Agua", "Psiquico"]
 	},
 	{
 		"id": 122,
 		"name": "Mr. Mime",
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 123,
 		"name": "Scyther",
-		"types": ["bug", "flying"]
+		"types": ["Bicho", "Volador"]
 	},
 	{
 		"id": 124,
 		"name": "Jynx",
-		"types": ["ice", "psychic"]
+		"types": ["Hielo", "Psiquico"]
 	},
 	{
 		"id": 125,
 		"name": "Electabuzz",
-		"types": ["electric"]
+		"types": ["Electrico"]
 	},
 	{
 		"id": 126,
 		"name": "Magmar",
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 127,
 		"name": "Pinsir",
-		"types": ["bug"]
+		"types": ["Bicho"]
 	},
 	{
 		"id": 128,
 		"name": "Tauros",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 129,
 		"name": "Magikarp",
 		"isNfe": True,
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 130,
 		"name": "Gyarados",
-		"types": ["water", "flying"]
+		"types": ["Agua", "Volador"]
 	},
 	{
 		"id": 131,
 		"name": "Lapras",
-		"types": ["water", "ice"]
+		"types": ["Agua", "Hielo"]
 	},
 	{
 		"id": 132,
 		"name": "Ditto",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 133,
 		"name": "Eevee",
 		"isNfe": True,
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 134,
 		"name": "Vaporeon",
-		"types": ["water"]
+		"types": ["Agua"]
 	},
 	{
 		"id": 135,
 		"name": "Jolteon",
-		"types": ["electric"]
+		"types": ["Electrico"]
 	},
 	{
 		"id": 136,
 		"name": "Flareon",
-		"types": ["fire"]
+		"types": ["Fuego"]
 	},
 	{
 		"id": 137,
 		"name": "Porygon",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 138,
 		"name": "Omanyte",
 		"isNfe": True,
-		"types": ["rock", "water"]
+		"types": ["Piedra", "Agua"]
 	},
 	{
 		"id": 139,
 		"name": "Omastar",
-		"types": ["rock", "water"]
+		"types": ["Piedra", "Agua"]
 	},
 	{
 		"id": 140,
 		"name": "Kabuto",
 		"isNfe": True,
-		"types": ["rock", "water"]
+		"types": ["Piedra", "Agua"]
 	},
 	{
 		"id": 141,
 		"name": "Kabutops",
-		"types": ["rock", "water"]
+		"types": ["Piedra", "Agua"]
 	},
 	{
 		"id": 142,
 		"name": "Aerodactyl",
-		"types": ["rock", "flying"]
+		"types": ["Piedra", "Volador"]
 	},
 	{
 		"id": 143,
 		"name": "Snorlax",
-		"types": ["normal"]
+		"types": ["Normal"]
 	},
 	{
 		"id": 144,
 		"name": "Articuno",
-		"types": ["ice", "flying"]
+		"types": ["Hielo", "Volador"]
 	},
 	{
 		"id": 145,
 		"name": "Zapdos",
-		"types": ["electric", "flying"]
+		"types": ["Electrico", "Volador"]
 	},
 	{
 		"id": 146,
 		"name": "Moltres",
-		"types": ["fire", "flying"]
+		"types": ["Fuego", "Volador"]
 	},
 	{
 		"id": 147,
 		"name": "Dratini",
 		"isNfe": True,
-		"types": ["dragon"]
+		"types": ["Dragon"]
 	},
 	{
 		"id": 148,
 		"name": "Dragonair",
 		"isNfe": True,
-		"types": ["dragon"]
+		"types": ["Dragon"]
 	},
 	{
 		"id": 149,
 		"name": "Dragonite",
-		"types": ["dragon", "flying"]
+		"types": ["Dragon", "Volador"]
 	},
 	{
 		"id": 150,
 		"name": "Mewtwo",
 		"isUber": True,
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 151,
 		"name": "Mew",
 		"isUber": True,
-		"types": ["psychic"]
+		"types": ["Psiquico"]
 	},
 	{
 		"id": 152,
@@ -851,24 +858,23 @@ def lista_pokemon():
 		"id": 153,
 		"name": "Gyaradous terrestre",
 		"isUber": True,
-		"types": ["Normal"]
+		"types": ["Tierra"]
 	},
 	{
 		"id": 154,
 		"name": "Diglett con moco",
 		"isUber": True,
-		"types": ["Normal"]
+		"types": ["Tierra", "Veneno"]
 	},
 	{
 		"id": 155,
 		"name": "Pikachu super sayajin",
 		"isUber": True,
-		"types": ["Normal"]
+		"types": ["Electrico"]
 	}
 	]
 
 	return dicc
-
 
 
 

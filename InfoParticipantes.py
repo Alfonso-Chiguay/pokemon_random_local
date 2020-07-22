@@ -15,6 +15,10 @@ class InfoParticipantes(Frame):
         self.lbl_jug1.place(x=20, y=20)
         self.pokemon_jug1 = Entry(self,width=5)
         self.pokemon_jug1.place(x=140, y=20)
+        self.tipo1_jug1 = Label(self)
+        self.tipo1_jug1.place(x=150, y=60)
+        self.tipo2_jug1 = Label(self)
+        self.tipo2_jug1.place(x=150, y=90)
         self.generar1 = Button(self, text="Asignar pokemon")
         self.generar1["command"] = self.generar_pokemon1
         self.generar1.place(x=180, y=15)
@@ -49,7 +53,15 @@ class InfoParticipantes(Frame):
         X = 40
         Y = 60
         pokemon = self.pokemon_jug1.get()
+        
         if pokemon != "":
+            tipos = allpkmn.types_from_id(pokemon)
+            if len(tipos) == 1:
+                self.tipo1_jug1["text"] = tipos[0]
+                self.tipo2_jug1["text"] = ""
+            else:
+                self.tipo1_jug1["text"] = tipos[0]
+                self.tipo2_jug1["text"] = tipos[1]
             load = Image.open("pkmn_img/{}.png".format(pokemon)).resize((100, 100),Image.ANTIALIAS)
             render = ImageTk.PhotoImage(load)
             img = Label(self, image=render)
