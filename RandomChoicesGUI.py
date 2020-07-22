@@ -56,9 +56,11 @@ class Window(Frame):
         img.image = render
         img.place(x=900, y=70)
 
+
+
         
 root = Tk()
 app = Window(root)
-root.wm_title("Tkinter window")
+root.wm_title("Random Choices")
 root.geometry("1400x600")
 root.mainloop()
