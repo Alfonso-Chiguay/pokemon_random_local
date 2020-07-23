@@ -5,16 +5,21 @@ def random_pick():
 	es_basura = randint(-3, -1)
 	lista_basura = [41,50]
 	if es_basura == -2:
-		pokemon = choHielo(lista_basura)
+		pokemon = choice(lista_basura)
 		return pokemon
 	else:		
-		pokemon = choHielo(lista_pokemon())
+		pokemon = choice(lista_pokemon())
 		return pokemon["id"]
 
 def types_from_id(id):
 	listado = lista_pokemon()
 	pokemon = listado[int(id)-1]
 	return pokemon["types"]
+
+def name_from_id(id):
+    listado = lista_pokemon()
+    pokemon = listado[int(id)-1]
+    return pokemon["name"]
 
 
 
@@ -856,9 +861,9 @@ def lista_pokemon():
 	},
 	{
 		"id": 153,
-		"name": "Gyaradous terrestre",
+		"name": "Diglett Kawaii",
 		"isUber": True,
-		"types": ["Tierra"]
+		"types": ["Tierra", "Hermoso"]
 	},
 	{
 		"id": 154,
@@ -868,9 +873,39 @@ def lista_pokemon():
 	},
 	{
 		"id": 155,
-		"name": "Pikachu super sayajin",
+		"name": "Charmander Vegetta",
 		"isUber": True,
-		"types": ["Electrico"]
+		"types": ["Fuego", "Electrico"]
+	},
+    {
+		"id": 156,
+		"name": "Diglett Yaranaika",
+		"isUber": True,
+		"types": ["Tierra", "Sensual"]
+	},
+    {
+		"id": 157,
+		"name": "Ditto Yaranaika",
+		"isUber": True,
+		"types": ["Normal"]
+	},
+    {
+		"id": 158,
+		"name": "Diglett mamadísimo",
+		"isUber": True,
+		"types": ["Tierra", "Luchador"]
+	},
+    {
+		"id": 159,
+		"name": "Magikarp musculoso",
+		"isUber": True,
+		"types": ["Agua", "Luchador"]
+	},
+    {
+		"id": 160,
+		"name": "Pikachu Ditto",
+		"isUber": True,
+		"types": ["Normal", "Electrico"]
 	}
 	]
 
