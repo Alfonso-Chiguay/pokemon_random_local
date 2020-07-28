@@ -1,5 +1,8 @@
 from random import randint, choice
 
+
+
+
 def random_pick():
 	listado = lista_pokemon()
 	es_basura = randint(-3, -1)
