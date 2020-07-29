@@ -1,9 +1,9 @@
 from tkinter import *
 from random import randint
 import allpkmn
-
 # pip install pillow
 from PIL import Image, ImageTk
+
 
 class Window(Frame):
     def __init__(self, master=None):
@@ -42,6 +42,8 @@ class Window(Frame):
         self.lbl_nombre.place(x=20, y=55)
         self.lbl_tipo1.place(x=20, y=560)
         self.lbl_tipo2.place(x=20, y=590)
+
+   
         
     def random_pkmn(self):        
         id_pokemon = allpkmn.random_pick()    
@@ -88,8 +90,9 @@ class Window(Frame):
         img.place(x=900, y=70)
         self.int_contador_moneda += 1
         self.contador_moneda["text"] = str(self.int_contador_moneda)
-
-
+    
+    
+    
 
         
 root = Tk()
