@@ -139,24 +139,25 @@ class Window(Frame):
         else:
             self.lbl_tipo1_retador["text"] = tipos[0]
             self.lbl_tipo2_retador["text"] = ""
+
         self.lbl_vida_retador["text"] = pokemon["vida"]*"♥ " 
         self.vida_retador = pokemon["vida"]
-        print(self.lbl_tipo1_oponente["text"])
+        
         if(len(self.lbl_tipo2_oponente["text"])>0):
             tipos_oponente = [self.lbl_tipo1_oponente["text"],self.lbl_tipo2_oponente["text"]]
         else:
              tipos_oponente = [self.lbl_tipo1_oponente["text"]]
+
         es_debil_retador = ""
+        es_debil_oponente = ""
         for tipo_retador in tipos:
             for tipo_oponente in tipos_oponente:
                 if allpkmn.debil_contra(tipo_retador,tipo_oponente):
                     es_debil_retador = "- Debil -"
-
-        es_debil_oponente = ""
-        for tipo_oponente in tipos_oponente:
-            for tipo_retador in tipos:
                 if allpkmn.debil_contra(tipo_oponente,tipo_retador):
-                    es_debil_oponente = "- Debil -"
+                    es_debil_oponente = "- Debil -"        
+        
+                    
 
         self.lbl_es_debil_retador["text"] = es_debil_retador
         self.lbl_es_debil_oponente["text"] = es_debil_oponente
@@ -171,6 +172,7 @@ class Window(Frame):
         img.place(x=800, y=130)
         info_pokemon = allpkmn.pokemon_from_id(id_pokemon)
         self.lbl_nombre_oponente["text"] = info_pokemon["name"]
+
         tipos = info_pokemon["types"]
         if len(tipos) == 2:
             self.lbl_tipo1_oponente["text"] = tipos[0]
@@ -178,6 +180,7 @@ class Window(Frame):
         else:
             self.lbl_tipo1_oponente["text"] = tipos[0]
             self.lbl_tipo2_oponente["text"] = ""
+
         self.lbl_vida_oponente["text"] = info_pokemon["vida"]*"♥ "    
         self.vida_oponente = info_pokemon["vida"]
 
@@ -185,17 +188,16 @@ class Window(Frame):
             tipos_retador = [self.lbl_tipo1_retador["text"],self.lbl_tipo2_retador["text"]]
         else:
             tipos_retador = [self.lbl_tipo1_oponente["text"]]
+
         es_debil_retador = ""
+        es_debil_oponente = ""
         for tipo_retador in tipos_retador:
             for tipo_oponente in tipos:            
                 if allpkmn.debil_contra(tipo_retador,tipo_oponente):
                     es_debil_retador = "- Debil -"
-
-        es_debil_oponente = ""
-        for tipo_oponente in tipos:
-            for tipo_retador in tipos_retador:
                 if allpkmn.debil_contra(tipo_oponente,tipo_retador):
-                    es_debil_oponente = "- Debil -"
+                    es_debil_oponente = "- Debil -"       
+        
 
         self.lbl_es_debil_retador["text"] = es_debil_retador
         self.lbl_es_debil_oponente["text"] = es_debil_oponente
@@ -210,6 +212,7 @@ class Window(Frame):
         img.place(x=800, y=130)
         info_pokemon = allpkmn.pokemon_from_id(id_pokemon)
         self.lbl_nombre_oponente["text"] = info_pokemon["name"]
+
         tipos = info_pokemon["types"]
         if len(tipos) == 2:
             self.lbl_tipo1_oponente["text"] = tipos[0]
@@ -217,23 +220,24 @@ class Window(Frame):
         else:
             self.lbl_tipo1_oponente["text"] = tipos[0]
             self.lbl_tipo2_oponente["text"] = ""
+
         self.vida_oponente = info_pokemon["vida"]+3
         self.lbl_vida_oponente["text"] = self.vida_oponente*"♥ " 
+
         if(len(self.lbl_tipo2_retador["text"])>0):
             tipos_retador = [self.lbl_tipo1_retador["text"],self.lbl_tipo2_retador["text"]]
         else:
             tipos_retador = [self.lbl_tipo1_oponente["text"]]
+
         es_debil_retador = ""
+        es_debil_oponente = ""
         for tipo_retador in tipos_retador:
             for tipo_oponente in tipos:            
                 if allpkmn.debil_contra(tipo_retador,tipo_oponente):
                     es_debil_retador = "- Debil -"
-
-        es_debil_oponente = ""
-        for tipo_oponente in tipos:
-            for tipo_retador in tipos_retador:
                 if allpkmn.debil_contra(tipo_oponente,tipo_retador):
-                    es_debil_oponente = "- Debil -"
+                    es_debil_oponente = "- Debil -"       
+        
 
         self.lbl_es_debil_retador["text"] = es_debil_retador
         self.lbl_es_debil_oponente["text"] = es_debil_oponente
