@@ -5,7 +5,7 @@ from random import randint, choice
 
 def random_pick():
 	listado = lista_pokemon()
-	es_basura = randint(-3, -1)
+	es_basura = randint(-4, -1)
 	lista_basura = [41,50]
 	if es_basura == -2:
 		pokemon = choice(lista_basura)
