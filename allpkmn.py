@@ -35,6 +35,27 @@ def search_from_name(name):
             return i
     return 0
 
+def debil_contra(tipo1,tipo2):
+	debilidad = {
+				"Normal":["Luchador"],
+				"Fuego":["Agua","Tierra","Roca"],
+				"Agua":["Hierba","Electrico"],
+				"Hierba":["Fuego", "Hielo", "Veneno", "Volador", "Bicho"],
+				"Electrico":["Tierra"],
+				"Hielo":["Fuego","Luchador","Roca"],
+				"Luchador":["Volador","Psiquico"],
+				"Veneno":["Tierra","Psiquico"],
+				"Tierra":["Agua","Hierba","Hielo"],
+				"Volador":["Electrico","Hielo","Roca"],
+				"Psiquico":["Bicho","Fantasma"],
+				"Bicho":["Volador","Roca","Fuego"],
+				"Fantasma":["Fantasma"],
+				"Dragon":["Dragon","Hielo"]				
+				}
+	for tipos in debilidad[tipo1]:
+		if tipos.lower() == tipo2.lower():
+			return True
+	return False
 
 
 

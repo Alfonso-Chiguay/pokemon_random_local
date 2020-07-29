@@ -13,17 +13,20 @@ class Window(Frame):
         #RETADOR
         self.lbl_nombre_retador = Label(self, text="Nombre del pokemon", font=("Times New Roman","16"))
         self.lbl_nombre_retador.place(x=50,y=25)
+
         self.nombre_pokemon_retador = Entry(self,width=30, font=("Times New Roman","16"))
         self.nombre_pokemon_retador.place(x=50,y=60)
+
         self.lbl_numero_retador = Label(self, text="# pkmn", font=("Times New Roman","16"))
         self.lbl_numero_retador.place(x=400,y=25)
+
         self.numero_pokemon_retador = Entry(self, width=5, font=("Times New Roman","16"))
         self.numero_pokemon_retador.place(x=400,y=60)
 
         self.lbl_tipo1_retador = Label(self,font=("Times New Roman","14"))
-        self.lbl_tipo1_retador.place(x=50, y=560)
+        self.lbl_tipo1_retador.place(x=50, y=580)
         self.lbl_tipo2_retador = Label(self,font=("Times New Roman","14"))
-        self.lbl_tipo2_retador.place(x=50, y=590)
+        self.lbl_tipo2_retador.place(x=50, y=610)
 
         self.lbl_vida_retador = Label(self, fg="red",font=("Times New Roman","30"))
         self.lbl_vida_retador.place(x=250,y=580)
@@ -31,6 +34,9 @@ class Window(Frame):
         self.btn_generar_retador = Button(self, text="Generar",font=("Times New Roman","12"))
         self.btn_generar_retador["command"] = self.generar_retador
         self.btn_generar_retador.place(x=480,y=55)
+
+        self.lbl_es_debil_retador = Label(self,fg="red",font=("Times New Roman","16"))
+        self.lbl_es_debil_retador.place(x=50,y=640)
         
         
         #OPONENTE
@@ -42,12 +48,15 @@ class Window(Frame):
         self.lbl_nombre_oponente = Label(self,font=("Times New Roman","16"), fg="blue")
         self.lbl_nombre_oponente.place(x=1000,y=90)
         self.lbl_tipo1_oponente = Label(self,font=("Times New Roman","14"))
-        self.lbl_tipo1_oponente.place(x=800, y=560)
+        self.lbl_tipo1_oponente.place(x=800, y=580)
         self.lbl_tipo2_oponente = Label(self,font=("Times New Roman","14"))
-        self.lbl_tipo2_oponente.place(x=800, y=590)
+        self.lbl_tipo2_oponente.place(x=800, y=610)
 
         self.lbl_vida_oponente = Label(self, fg="red",font=("Times New Roman","30"))
         self.lbl_vida_oponente.place(x=1000,y=580)
+
+        self.lbl_es_debil_oponente = Label(self, fg="red",font=("Times New Roman","16"))
+        self.lbl_es_debil_oponente.place(x=800,y=640)
 
     def generar_retador(self):
         if self.nombre_pokemon_retador.get() != "":
@@ -81,6 +90,29 @@ class Window(Frame):
             self.lbl_tipo1_retador["text"] = tipos[0]
             self.lbl_tipo2_retador["text"] = ""
         self.lbl_vida_retador["text"] = pokemon["vida"]*"♥ "  
+        print(self.lbl_tipo1_oponente["text"])
+        if(len(self.lbl_tipo2_oponente["text"])>0):
+            tipos_oponente = [self.lbl_tipo1_oponente["text"],self.lbl_tipo2_oponente["text"]]
+        else:
+             tipos_oponente = [self.lbl_tipo1_oponente["text"]]
+        es_debil_retador = ""
+        for tipo_retador in tipos:
+            for tipo_oponente in tipos_oponente:
+                if allpkmn.debil_contra(tipo_retador,tipo_oponente):
+                    es_debil_retador = "- Debil -"
+
+        es_debil_oponente = ""
+        for tipo_oponente in tipos_oponente:
+            for tipo_retador in tipos:
+                if allpkmn.debil_contra(tipo_oponente,tipo_retador):
+                    es_debil_oponente = "- Debil -"
+
+        self.lbl_es_debil_retador["text"] = es_debil_retador
+        self.lbl_es_debil_oponente["text"] = es_debil_oponente
+
+       
+            
+                
 
 
     def random_pkmn(self):        
