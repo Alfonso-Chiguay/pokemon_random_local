@@ -16,6 +16,8 @@ class Window(Frame):
         self.ataque_retador = 0
         self.ataque_oponente = 0
 
+        
+
         #RETADOR
         self.lbl_nombre_retador = Label(self, text="Nombre del pokemon", font=("Times New Roman","16"))
         self.lbl_nombre_retador.place(x=50,y=25)
@@ -49,9 +51,14 @@ class Window(Frame):
         
         #OPONENTE
 
-        self.btn_generar_oponente = Button(self, text="Generar pokemon salvaje/gym",font=("Times New Roman","12"), width = 35)
+        self.btn_generar_oponente = Button(self, text="Generar pokemon salvaje/gym",font=("Times New Roman","12"), width = 21)
         self.btn_generar_oponente["command"] = self.random_pkmn
         self.btn_generar_oponente.place(x=850,y=55)
+        #OPONENTE ELITE
+        self.btn_generar_elite = Button(self, text="Generar pokemon Elite",font=("Times New Roman","12"), width = 20, bg="yellow")
+        self.btn_generar_elite["command"] = self.random_pkmn_elite
+        self.btn_generar_elite.place(x=1100,y=55)
+
 
         self.lbl_nombre_oponente = Label(self,font=("Times New Roman","16"), fg="blue")
         self.lbl_nombre_oponente.place(x=1000,y=90)
@@ -173,6 +180,66 @@ class Window(Frame):
             self.lbl_tipo2_oponente["text"] = ""
         self.lbl_vida_oponente["text"] = info_pokemon["vida"]*"♥ "    
         self.vida_oponente = info_pokemon["vida"]
+
+        if(len(self.lbl_tipo2_retador["text"])>0):
+            tipos_retador = [self.lbl_tipo1_retador["text"],self.lbl_tipo2_retador["text"]]
+        else:
+            tipos_retador = [self.lbl_tipo1_oponente["text"]]
+        es_debil_retador = ""
+        for tipo_retador in tipos_retador:
+            for tipo_oponente in tipos:            
+                if allpkmn.debil_contra(tipo_retador,tipo_oponente):
+                    es_debil_retador = "- Debil -"
+
+        es_debil_oponente = ""
+        for tipo_oponente in tipos:
+            for tipo_retador in tipos_retador:
+                if allpkmn.debil_contra(tipo_oponente,tipo_retador):
+                    es_debil_oponente = "- Debil -"
+
+        self.lbl_es_debil_retador["text"] = es_debil_retador
+        self.lbl_es_debil_oponente["text"] = es_debil_oponente
+
+    def random_pkmn_elite(self):           
+        id_pokemon = allpkmn.random_pick()    
+        print("Pokemon numero: "+str(id_pokemon))
+        load = Image.open("pkmn_img/{}.png".format(str(id_pokemon))).resize((400, 400),Image.ANTIALIAS)
+        render = ImageTk.PhotoImage(load)
+        img = Label(self, image=render)
+        img.image = render
+        img.place(x=800, y=130)
+        info_pokemon = allpkmn.pokemon_from_id(id_pokemon)
+        self.lbl_nombre_oponente["text"] = info_pokemon["name"]
+        tipos = info_pokemon["types"]
+        if len(tipos) == 2:
+            self.lbl_tipo1_oponente["text"] = tipos[0]
+            self.lbl_tipo2_oponente["text"] = tipos[1]
+        else:
+            self.lbl_tipo1_oponente["text"] = tipos[0]
+            self.lbl_tipo2_oponente["text"] = ""
+        self.vida_oponente = info_pokemon["vida"]+3
+        self.lbl_vida_oponente["text"] = self.vida_oponente*"♥ " 
+        if(len(self.lbl_tipo2_retador["text"])>0):
+            tipos_retador = [self.lbl_tipo1_retador["text"],self.lbl_tipo2_retador["text"]]
+        else:
+            tipos_retador = [self.lbl_tipo1_oponente["text"]]
+        es_debil_retador = ""
+        for tipo_retador in tipos_retador:
+            for tipo_oponente in tipos:            
+                if allpkmn.debil_contra(tipo_retador,tipo_oponente):
+                    es_debil_retador = "- Debil -"
+
+        es_debil_oponente = ""
+        for tipo_oponente in tipos:
+            for tipo_retador in tipos_retador:
+                if allpkmn.debil_contra(tipo_oponente,tipo_retador):
+                    es_debil_oponente = "- Debil -"
+
+        self.lbl_es_debil_retador["text"] = es_debil_retador
+        self.lbl_es_debil_oponente["text"] = es_debil_oponente
+
+
+        
             
 
         
