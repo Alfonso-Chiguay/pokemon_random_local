@@ -37,21 +37,21 @@ def search_from_name(name):
 
 def debil_contra(tipo1,tipo2):
 	debilidad = {
-				"Normal":["Luchador"],
-				"Fuego":["Agua","Tierra","Piedra"],
-				"Agua":["Hierba","Electrico"],
-				"Hierba":["Fuego", "Hielo", "Veneno", "Volador", "Bicho"],
-				"Electrico":["Tierra"],
-				"Hielo":["Fuego","Luchador","Piedra"],
-				"Luchador":["Volador","Psiquico"],
-				"Veneno":["Tierra","Psiquico"],
-				"Tierra":["Agua","Hierba","Hielo"],
-				"Volador":["Electrico","Hielo","Piedra"],
-				"Psiquico":["Bicho","Fantasma"],
-				"Bicho":["Volador","Piedra","Fuego"],
-				"Fantasma":["Fantasma"],
-				"Dragon":["Dragon","Hielo"],
-				"Piedra":["Agua","Hierba","Luchador","Tierra"]
+				"Normal":["Luchador","Todos"],
+				"Fuego":["Agua","Tierra","Piedra","Todos"],
+				"Agua":["Hierba","Electrico","Todos"],
+				"Hierba":["Fuego", "Hielo", "Veneno", "Volador", "Bicho","Todos"],
+				"Electrico":["Tierra","Todos"],
+				"Hielo":["Fuego","Luchador","Piedra","Todos"],
+				"Luchador":["Volador","Psiquico","Todos"],
+				"Veneno":["Tierra","Psiquico","Todos"],
+				"Tierra":["Agua","Hierba","Hielo","Todos"],
+				"Volador":["Electrico","Hielo","Piedra","Todos"],
+				"Psiquico":["Bicho","Fantasma","Todos"],
+				"Bicho":["Volador","Piedra","Fuego","Todos"],
+				"Fantasma":["Fantasma","Todos"],
+				"Dragon":["Dragon","Hielo","Todos"],
+				"Piedra":["Agua","Hierba","Luchador","Tierra","Todos"]
 				}
 	for tipos in debilidad[tipo1]:
 		if tipos.lower() == tipo2.lower():
